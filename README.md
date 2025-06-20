@@ -1,12 +1,66 @@
-# React + Vite
+Game Challenge component.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tech Stack Used
 
-Currently, two official plugins are available:
+React (Vite-based setup)
+Tailwind CSS for styling
+React Icons for UI icons
+UI Avatars API for profile images
+Vanilla CSS (app.css) for additional animations
+React hooks (useState) for state management
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+src/
+│
+├── components/
+│ ├── Header.jsx // Top bar with wallet and notification icons
+│ ├── ChallengeForm.jsx // Invite friend with game selection and suggestion
+│ ├── OngoingChallenges.jsx // Shows ongoing sent challenges
+│ ├── IncomingInvites.jsx // Shows received invites
+│
+├── App.jsx // Main layout integrating all components
+├── main.jsx // React DOM entry point
+└── index.css // Tailwind base styles and custom classes
 
-## Expanding the ESLint configuration
+Help for Backend Developer
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+For user suggestions:
+
+Replace the hardcoded allUsers array with an API call
+
+Example endpoint: GET /api/users?search=name
+
+Use the results to populate the dropdown for friend search
+
+For sending game invites:
+
+Replace the local alert() with a POST request
+
+Example endpoint: POST /api/invite
+
+Payload: { friendName, game }
+
+For fetching ongoing challenges and received invites:
+
+Replace the static arrays with data from these endpoints:
+GET /api/ongoing
+GET /api/invites
+
+Suggested backend models:
+
+User
+
+FriendRequest
+
+GameChallenge (with status: pending, accepted, rejected)
+
+Optionally add token-based authentication for real users
+
+Space has been kept in the UI for user-specific features
+
+How to Run Locally
+
+Install dependencies:
+npm install
+
+Run development server:
+npm run dev
